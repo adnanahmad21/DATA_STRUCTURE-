@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class DS5 {
+    
     public static void main(String[] args) {
         String a;
         int b[] = new int[5];

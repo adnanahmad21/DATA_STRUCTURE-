@@ -48,9 +48,10 @@ public class StacksImplementation {
             System.out.print("]");
             System.out.println();
         }
-        void reverse(){
+
+        void reverse() {
             System.out.print("[");
-            for(int i=top-1;i>-1;i--){
+            for (int i = top - 1; i > -1; i--) {
                 System.out.print(a[i] + " ");
             }
             System.out.print("]");
@@ -66,7 +67,7 @@ public class StacksImplementation {
         st.push(4);
         st.push(5);
         st.display();
-         st.reverse();
+        st.reverse();
         System.out.println("Stack size " + st.size());
         System.out.println("Peak Element " + st.peek());
         System.out.println("Pop Element " + st.pop());
