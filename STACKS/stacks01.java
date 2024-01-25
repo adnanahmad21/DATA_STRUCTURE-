@@ -1,5 +1,4 @@
 import java.util.Stack;
-
 class stacks01 {
     public static void reverse(Stack<Integer> st) {
         if (st.size() == 1) {

@@ -1,4 +1,3 @@
-import java.util.Stack;
 
 public class StacksImplementation2 {
     static class Node {
