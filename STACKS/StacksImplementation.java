@@ -23,12 +23,9 @@ public class StacksImplementation {
         }
 
         boolean isEmpty() {
-            int i = 0;
-            while (i < top) {
-                if (a[i] != 0)
-                    return false;
-            }
-            return true;
+            if (top < 0)
+                return true;
+            return false;
         }
 
         int size() {
