@@ -2,13 +2,16 @@ import java.util.Stack;
 
 public class prefixExpression {
     public static void main(String args[]) {
-        String s = "A*D+C";
-        //String s = "5+3";
+        // String s = "((a/b)+c)-(d+(e*f))";
+        //String s = "5+3"; -+/abc+d*ef
+        String s=" ( (f*e)+d)-(c+(b/a))";
+        
         Stack<String> val = new Stack<>();
         Stack<Character> op = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             int ascii = (int)ch;
+            if(ch==' ') continue;
             if (ascii >= 48 && ascii <= 57) {
                 String st = "" + ch;
                 val.push(st);
