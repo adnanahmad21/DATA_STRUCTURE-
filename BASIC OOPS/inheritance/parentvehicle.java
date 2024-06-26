@@ -1,25 +1,28 @@
 class parentvehicle {
-    String name;
-    String vehicleType;
-    float price;
-    String colour;
+   String name;
+   String vehicleType;
+   float price;
+   String colour;
 
-    String engineType;
-    String fueltype;
-    parentvehicle(){
+   String engineType;
+   String fueltype;
 
-    }
- parentvehicle(String name){
-    System.out.println(" Parent class is inherited by "+name);
- }
-    // parentvehicle(String name, String vehicleType, float price, String Colour) {
-    //     this.name = name;
-    //     this.vehicleType = vehicleType;
-    //     this.price = price;
-    //     this.colour = colour;
-    // }
+   parentvehicle() {
 
-     final void start() {
-        System.out.println(this.name + " is start ");
-    }
+   }
+
+   parentvehicle(String name) {
+      this.name=name;
+      System.out.println(" Parent class is inherited by " + name);
+   }
+   // parentvehicle(String name, String vehicleType, float price, String Colour) {
+   // this.name = name;
+   // this.vehicleType = vehicleType;
+   // this.price = price;
+   // this.colour = colour;
+   // }
+
+   final void start() {
+      System.out.println(this.name + " is start ");
+   }
 }

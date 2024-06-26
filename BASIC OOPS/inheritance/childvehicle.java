@@ -30,13 +30,15 @@ public class childvehicle {
 
 class Car extends parentvehicle {
     Car() {
-    super("Alto");  // call parentvehicle constructor or parent co=lass constructuor
-    super.start(); // call parent stsrt( )method
- 
-    }
+        super("Alto");
+        //this.name="alto";
+         // call parentvehicle constructor or parent class constructuor
+        super.start(); // call parent start( )method
 
+    }
+ 
     // void start() { // final method cannot be recreated
-    //     System.out.println("Car start");
+    // System.out.println("Car start");
     // }
 
     void bioData() {
@@ -51,11 +53,14 @@ class Car extends parentvehicle {
 
 class Bike extends parentvehicle {
     Bike() {
-
+        super("PulsarN160");
+        //this.name="alto";
+         // call parentvehicle constructor or parent class constructuor
+        super.start(); // call parent start( )method
     }
 
     // void start() {
-    //     System.out.println("Bike start");
+    // System.out.println("Bike start");
     // }
 
     String engineType;
@@ -76,7 +81,7 @@ class Scooty extends parentvehicle {
     }
 
     // void start() {
-    //     System.out.println("Bike start");
+    // System.out.println("Bike start");
     // }
 
     String engineType;
