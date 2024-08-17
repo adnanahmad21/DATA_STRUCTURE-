@@ -1,6 +1,6 @@
 interface phone {
 
-    int price = 15000;
+    static int price = 15000;
     int ram = 8;
 
     void funct();
@@ -57,6 +57,7 @@ public class interFace {
         s1.print();
         s1.display();
         System.out.println(samsung.price);
+     
 
     }
 }

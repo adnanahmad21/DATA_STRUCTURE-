@@ -1,42 +1,40 @@
-abstract class vehicle1 {
+ sealed abstract class vehicle1  permits car,bike{
+
     abstract void accelerate();
 
     abstract void brake();
-
-    int vehilce_No;
-
     void start() {
         System.out.println(" start");
     }
+    int vehilce_No;
 }
 
-class car extends vehicle1 {
-
-    car() {
-        System.out.println("hihisa");
-    }
-
-    void accelerate() {
+ final class car extends vehicle1 {
+   
+ int vehilce_No;
+   public  void accelerate() {
 
         System.out.println("Car is  accelerating");
 
     }
 
-    void brake() {
+    public void brake() {
         System.out.println("Car have brake");
     }
 
 }
 
-class bike extends car {
-
-    void accelerate() {
+final class bike extends vehicle1 {
+ bike(){
+    System.out.println("wfwf");
+ }
+    public void accelerate() {
 
         System.out.println("bike is  accelerating");
 
     }
 
-    void brake() {
+    public void brake() {
         System.out.println("bike have brake");
     }
 
@@ -58,7 +56,7 @@ public class vehicle {
         b1.accelerate();
         b1.brake();
         b1.vehilce_No = 0415;
-        b1.start();
+       
 
         System.out.println(c1.vehilce_No);
 

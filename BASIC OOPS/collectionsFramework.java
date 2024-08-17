@@ -33,46 +33,43 @@ class collectionsFramework {
         System.out.println(ll.isEmpty());
         System.out.println(ll);
 
-
     }
 
     void Stacks() {
         Stack<String> st = new Stack<>();
-      st.push("Hello");
-      st.push("EveryOne");
-      st.push(" ");
-      st.push("My name is Adnan Ahmad");
-      System.out.println(st.peek());
-      System.out.println(st.size());
-      System.out.println(st.pop());
-      System.out.println(st);
-      System.out.println(st.isEmpty());
-      System.out.println(st.pop());
-      System.out.println(st);
-      
-      
+        st.push("Hello");
+        st.push("EveryOne");
+        st.push(" ");
+        st.push("My name is Adnan Ahmad");
+        System.out.println(st.peek());
+        System.out.println(st.size());
+        System.out.println(st.pop());
+        System.out.println(st);
+        System.out.println(st.isEmpty());
+        System.out.println(st.pop());
+        System.out.println(st);
 
     }
 
     void Queue() {
-  Queue<Integer> q=new ArrayDeque<>();
-  q.add(1);
-  q.add(2);
-  q.add(3);
-  q.add(4);
-  q.add(5);
-  System.out.println(q.size());
-  System.out.println(q.peek());
-  System.out.println(q);
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
+        System.out.println(q.size());
+        System.out.println(q.peek());
+        System.out.println(q);
 
-  q.offer(6);
-  System.out.println(q);
+        q.offer(6);
+        System.out.println(q);
 
     }
 
     public static void main(String[] args) {
         collectionsFramework cf = new collectionsFramework();
-        //cf.ArrayListt();
+        // cf.ArrayListt();
         // cf.LinkedListt();
         // cf.Stacks();
         cf.Queue();

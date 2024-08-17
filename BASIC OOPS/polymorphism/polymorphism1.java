@@ -6,28 +6,28 @@ class car {
     void start() {
         System.out.println(" car is start");
     }
-
-    // int kms(int actual) {
-    //     return actual;
-    // }
+// method overloading
+    int kms(int actual) {
+    return actual+12;
+    }
 
     int kms(int actual, int given) {
-        return actual+given;
+        return actual + given;
     }
 }
 
 class polymorphism1 extends car {
-   int kms(int actual){
-    return actual;
-   }
- public static void main(String[] args) {
-  
-   polymorphism1 p1=new polymorphism1();
-  ;
-   
-  System.out.println( p1.kms(5));
-  System.out.print( p1.kms(5,7));
+    @Override
+    int kms(int actual) {
+        return actual;
+    }
 
+    public static void main(String[] args) {
 
- }
+        polymorphism1 p1 = new polymorphism1();
+
+        System.out.println(p1.kms(5));
+        System.out.print(p1.kms(5, 7));
+
+    }
 }

@@ -1,7 +1,7 @@
 class nestedClass {
     int a = 5;
     float y = 1.1f;
-    String name = "AdnanAhmad";
+    private String name = "AdnanAhmad";
 
     class nested1 {
 
