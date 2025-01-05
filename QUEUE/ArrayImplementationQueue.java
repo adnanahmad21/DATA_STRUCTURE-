@@ -24,12 +24,13 @@ public class ArrayImplementationQueue {
         }
     
         int remove() {
-            if (front == rear + 1) {
+            if (front == rear ) {
                 System.out.println("Queue is empty");
                 return -1;
             }
-            int x = arr[front];
-            front++;
+            int x = arr[0];
+            for(int i=0;i<rear;i++)
+            arr[i]=arr[i+1];
             size--;
             return x;
         }
@@ -41,11 +42,16 @@ public class ArrayImplementationQueue {
             } else
                 return -1;
         }
-    
+      boolean isEmpty(){
+        if(rear==-1) return true;
+        else return false;
+      }
         void display() {
-            for (int i = front; i <= rear; i++) {
+            if(!isEmpty()){
+            for (int i = 0; i <=rear; i++) {
                 System.out.print(arr[i] + " ");
             }
+        }
     
             System.out.println();
         }

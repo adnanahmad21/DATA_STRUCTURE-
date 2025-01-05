@@ -1,24 +1,29 @@
 public class circularQueue {
     public static class CQueue {
-        int arr[] = new int[20];
+        int arr[] = new int[10];
         int size = 0;
         int front = -1;
         int rear = -1;
 
         void add(int val) {
-            if (size == arr.length) {
+            if ((rear+1)%arr.length==front) {
                 System.out.println("Queue is full");
                 return ;
-            } else if (size == 0) {
-                front = rear = 0;
-                arr[front] = val;
-
-            } else if (rear < arr.length - 1) {
-                arr[++rear] = val;
-            } else if (rear == arr.length - 1) {
-                rear = 0;
-                arr[++rear] = val;
             }
+            if(front==-1)
+            front=0;
+            rear=(rear+1)%arr.length;
+            arr[rear]=val;
+            // } else if (size == 0) {
+            //     front = rear = 0;
+            //     arr[front] = val;
+
+            // } else if (rear < arr.length - 1) {
+            //     arr[++rear] = val;
+            // } else if (rear == arr.length - 1) {
+            //     rear = 0;
+            //     arr[++rear] = val;
+            // }
             size++;
 
         }
@@ -91,6 +96,11 @@ public class circularQueue {
        System.out.println(q.size);
        q.display();
        q.remove();
+       q.remove();
+       q.remove();
+       q.remove();
+       q.remove();
+       q.add(1);
        System.out.println(q.peek());
        System.out.println(q.size);
        q.display();
