@@ -1,21 +1,30 @@
 import java.util.*;
-class DFS {
-    static void dfsTraversal(List<List<Integer>> adjacencyList, int u, boolean visited[]) {
-        if (visited[u] == true)
-            return;
-        visited[u] = true;
 
-        for (int v : adjacencyList.get(u)) {
-            System.out.println(u + " ->" + v);
-            if (!visited[v]) {
+public class BFS {
+   static  void bfsTraversal(List<List<Integer>> adjacencyList)
+    {
+        boolean visited[]=new boolean[5];
+        Queue<Integer>q=new ArrayDeque<>();
+        q.add(1);
+        visited[1]=true;
+        while(q.size()>0)
+        {
+            int u=q.remove();
 
-                dfsTraversal(adjacencyList, v, visited);
+            for (int v:adjacencyList.get(u))
+            {
+                System.out.println(u+"->"+v);
+                if(!visited[v])
+                {
+
+                    visited[v]=true;
+                    q.add(v);
+                }
             }
+            //System.out.println();
         }
     }
-
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of nodes: ");
         int n = sc.nextInt();
@@ -31,17 +40,11 @@ class DFS {
             int u = sc.nextInt();
             int v = sc.nextInt();
             adjacencyList.get(u).add(v);
-            adjacencyList.get(v).add(u);
+//            adjacencyList.get(v).add(u); // for directed graph only one edge u -> v not v -> u
         }
+        bfsTraversal(adjacencyList);
 
 
-
-        boolean visited[] = new boolean[n+1];
-        for (int i = 0; i < 5; i++) {
-            if (!visited[i])
-                dfsTraversal(adjacencyList, i, visited);
-
-        }
 
     }
 }

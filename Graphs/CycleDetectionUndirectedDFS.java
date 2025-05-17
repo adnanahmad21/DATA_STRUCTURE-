@@ -1,18 +1,22 @@
-import java.util.*;
-class DFS {
-    static void dfsTraversal(List<List<Integer>> adjacencyList, int u, boolean visited[]) {
-        if (visited[u] == true)
-            return;
-        visited[u] = true;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class CycleDetectionUndirectedDFS {
+    static boolean dfsTraversal(List<List<Integer>> adjacencyList, int u, boolean visited[],int parent) {
+        visited[u]=true;
         for (int v : adjacencyList.get(u)) {
-            System.out.println(u + " ->" + v);
-            if (!visited[v]) {
 
-                dfsTraversal(adjacencyList, v, visited);
-            }
+            if (v== parent) continue;
+            if(visited[v]==true) return  true;
+           return dfsTraversal(adjacencyList, v, visited, u);
+
+
+
         }
+        return  false;
     }
+
 
     public static void main(String[] args) {
 
@@ -37,11 +41,13 @@ class DFS {
 
 
         boolean visited[] = new boolean[n+1];
-        for (int i = 0; i < 5; i++) {
-            if (!visited[i])
-                dfsTraversal(adjacencyList, i, visited);
+
+
+                if(dfsTraversal(adjacencyList, 1, visited,-1))
+                    System.out.println("Cycle detected");
+            else  System.out.println(" NO Cycle detected");
 
         }
 
     }
-}
+
