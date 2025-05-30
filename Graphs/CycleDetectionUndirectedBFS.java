@@ -32,7 +32,7 @@ public class CycleDetectionUndirectedBFS {
                     q.add(new Pair(v,u));
                     visited[v]=true;
                 }
-                else if(parent!=u) return  false;
+                else if(parent!=u) return  true;
             }
         }
         return false;
