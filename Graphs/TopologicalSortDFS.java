@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
-
 public class TopologicalSortDFS {
     static  void  topologicalsort(List<List<Integer>> adjacencyList,Stack<Integer> st,boolean vis[],int u)
     {
@@ -32,23 +31,17 @@ public class TopologicalSortDFS {
             adjacencyList.get(u).add(v);
 //            adjacencyList.get(v).add(u);
         }
-
-
         boolean visited[] = new boolean[n + 1];
         boolean inRecursion[] = new boolean[n + 1];
         int x=0;
         Stack<Integer> st=new Stack<>();
         for(int i=0;i<n;i++)
         {
-            if ( visited[i]==false ) topologicalsort(adjacencyList,st,visited,i);
-
-
-
+            if(visited[i]==false) topologicalsort(adjacencyList,st,visited,i);
         }
         while(st.size()>0)
         {
             System.out.print(st.pop() +"-> ");
-
     }
 }
 }
