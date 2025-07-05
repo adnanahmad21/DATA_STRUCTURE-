@@ -6,7 +6,7 @@ public class DijktraAlgorithm {
     {
         int node;
         int dist;
-        Pair(int node,int dis)
+        Pair(int node,int dist)
         {
             this.node=node;
             this.dist=dist;
