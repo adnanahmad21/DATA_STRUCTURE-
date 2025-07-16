@@ -44,3 +44,38 @@ Constraints:
 
 2 <= nums.length <= 2 * 105
 1 <= nums[i] <= 107
+
+
+
+
+code
+
+class Solution {
+    public int maximumLength(int[] nums) {
+        int n=nums.length;
+        if(n==2) return n;
+        int ans=1;
+        int odd=0;
+        int even=0;
+        int alt=0;
+
+        for(int i=0;i<n;i++)
+        {
+   if(nums[i]%2==0) even++;
+  
+   else odd++;
+        }
+         alt=nums[0]%2;
+   int parity=0;
+        for(int i=1;i<n;i++)
+        {
+            parity=nums[i]%2;
+            if(parity!=alt) 
+            {
+                ans++;
+                alt=parity;
+            }
+        }
+return Math.max(even,Math.max(odd,ans));
+    }
+}
