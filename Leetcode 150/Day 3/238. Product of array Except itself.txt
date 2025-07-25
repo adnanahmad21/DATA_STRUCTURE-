@@ -22,3 +22,33 @@ Constraints:
 -30 <= nums[i] <= 30
 The input is generated such that answer[i] is guaranteed to fit in a 32-bit integer.
  
+solution:::
+
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int ans[] = new int[nums.length];
+        int cnt, prod1, prod2;
+        cnt=0;
+        prod1 = 1;
+        prod2 = 1;
+        for (int x : nums) {
+            prod1 *= x;
+            if (x == 0)
+                cnt++;
+            else
+                prod2 *= x;
+
+        }
+        if(cnt>1) return ans;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]==0)
+            {
+                ans[i]=prod2;
+            }
+            else ans[i]=prod1/nums[i];
+        }
+        return ans;
+    }
+}

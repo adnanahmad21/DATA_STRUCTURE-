@@ -25,3 +25,50 @@ randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
 randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
 randomizedSet.insert(2); // 2 was already in the set, so return false.
 randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
+
+
+
+
+
+
+
+solution.....
+
+class RandomizedSet {
+    Map<Integer, Integer> map;
+    List<Integer> list;
+
+    public RandomizedSet() {
+        map = new HashMap<>();
+        list = new ArrayList<>();
+    }
+
+    public boolean insert(int val) {
+        if (map.containsKey(val))
+            return false;
+        list.add(val);
+        map.put(val, list.size() - 1);
+        return true;
+    }
+
+    public boolean remove(int val) {
+        if (!map.containsKey(val))
+            return false;
+        int idx = map.get(val);
+        int lastElement = list.get(list.size() - 1);
+
+        list.set(idx, lastElement);
+        map.put(lastElement, idx);
+
+        list.remove(list.size() - 1);
+        map.remove(val);
+
+        return true;
+    }
+
+    public int getRandom() {
+        Random random = new Random();  // java class provide rand value in range ...
+        return list.get(random.nextInt(list.size()));// value in range 0 to list_size
+    }
+}
+

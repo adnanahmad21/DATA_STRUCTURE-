@@ -37,3 +37,37 @@ n == gas.length == cost.length
 1 <= n <= 105
 0 <= gas[i], cost[i] <= 104
 The input is generated such that the answer is unique
+
+
+
+solution
+
+
+
+class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+
+        int total1=0;
+        int total2=0;
+     for(int i=0;i<gas.length;i++)
+     {
+            total1+=gas[i];
+            total2+=cost[i];
+     }
+             if(total1<total2) return -1;
+        int totalGas=0;
+        int j=0;
+        for(int i=0;i<gas.length;i++)
+        {
+            totalGas+=gas[i]-cost[i];
+            if(totalGas<0)
+            {
+                j=i+1;
+                totalGas=0;
+            }
+        }
+
+        return j;
+
+    }
+}
