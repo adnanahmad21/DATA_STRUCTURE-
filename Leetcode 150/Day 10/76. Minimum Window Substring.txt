@@ -1,0 +1,68 @@
+Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+
+The testcases will be generated such that the answer is unique.
+
+ 
+
+Example 1:
+
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+Example 2:
+
+Input: s = "a", t = "a"
+Output: "a"
+Explanation: The entire string s is the minimum window.
+Example 3:
+
+Input: s = "a", t = "aa"
+Output: ""
+Explanation: Both 'a's from t must be included in the window.
+Since the largest window of s only has one 'a', return empty string.
+ 
+
+Constraints:
+
+m == s.length
+n == t.length
+1 <= m, n <= 105
+s and t consist of uppercase and lowercase English letters.
+
+
+
+solution:::
+
+
+class Solution {
+    public String minWindow(String s, String t) {
+        Map<Character, Integer> map = new HashMap<>();
+        int n = s.length();
+        int m = t.length();
+        int ans = n + 1;
+        int count = m;
+        int start = -1;
+        for (char x : t.toCharArray())
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        int j = 0;
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            if (map.containsKey(ch) && map.get(ch) > 0)
+                count--;
+            map.put(ch, map.getOrDefault(ch, 0) - 1);
+            while (j <= i && count == 0) {
+
+                if (i - j + 1 < ans) {
+                    ans = i - j + 1;
+                    start = j;
+                }
+                char ch2 = s.charAt(j);
+                map.put(ch2, map.getOrDefault(ch2, 0) + 1);
+                if (map.get(ch2) > 0)
+                    count++;
+                j++;
+            }
+        }
+        return start==-1? "": s.substring(start, start+ans);
+    }
+}
