@@ -1,0 +1,66 @@
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+ 
+
+Example 1:
+
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+Example 2:
+
+
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+ 
+
+Constraints:
+
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 10
+-100 <= matrix[i][j] <= 100
+
+
+
+solution:::
+
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int m=matrix.length;
+        int n=matrix[0].length;
+        int dir=0;
+        int top=0;
+        int down=m-1;
+        int left=0;
+        int right=n-1;
+        List<Integer> list=new ArrayList<>();
+        while(top<=down && left<=right)
+        {
+            if(dir==0)
+            {
+                for(int i=left;i<=right;i++) list.add(matrix[top][i]);  // top is fixed
+                top++;
+            }
+            if(dir==1)
+            {
+                for(int i=top;i<=down;i++) list.add(matrix[i][right]); //right is fixed
+                right--;
+            }
+            if(dir==2)
+            {
+                for(int i=right;i>=left;i--) list.add(matrix[down][i]); // down fixed
+                down--;
+            }
+            if(dir==3)
+            {
+                for(int i=down;i>=top;i--) list.add(matrix[i][left]); //left fixed
+                left++;
+            }
+            dir++;
+            if(dir==4) dir=0;
+        }
+        return list;
+    }
+}
