@@ -36,3 +36,34 @@ points[i].length == 2
 solutions:::
 
 
+class Solution {
+    public int findMinArrowShots(int[][] points) {
+        int n = points.length;
+         Arrays.sort(points, Comparator.comparingInt( a->a[1])); // doing this bcz for large numbers integer range is cross
+        int[] arr = new int[2];
+        arr[0]=points[0][0];
+        arr[1]=points[0][1];
+        int ans = 1;
+       
+        for (int i = 1; i < n; i++) {
+            int psp = arr[0];
+            int pep = arr[1];
+            int csp = points[i][0];
+            int cep = points[i][1];
+
+            if (pep < csp) {
+                ans++;
+                arr[0] = points[i][0];
+                arr[1] = points[i][1];
+            }
+            else{
+                arr[0]=Math.max(psp,csp);
+                arr[1]=Math.min(pep,cep);
+            }
+        }
+
+        return ans;
+    }
+}
+
+
