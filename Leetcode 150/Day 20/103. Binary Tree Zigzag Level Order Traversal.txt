@@ -1,0 +1,89 @@
+Given the root of a binary tree, return the zigzag level order traversal of its nodes' values. (i.e., from left to right, then right to left for the next level and alternate between).
+
+ 
+
+Example 1:
+
+
+Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[20,9],[15,7]]
+Example 2:
+
+Input: root = [1]
+Output: [[1]]
+Example 3:
+
+Input: root = []
+Output: []
+ 
+
+Constraints:
+
+The number of nodes in the tree is in the range [0, 2000].
+-100 <= Node.val <= 100
+
+
+
+solution::
+
+
+approach 1::
+
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+                if(root==null) return new ArrayList<>();
+        List<List<Integer>> ans=new ArrayList<>();
+        Queue<TreeNode> q=new ArrayDeque<>();
+        q.add(root);
+        int level=0;
+        while(q.size()>0)
+        {
+            int n=q.size();
+            List<Integer> list=new ArrayList<>();
+            while(n-->0)
+            {
+                TreeNode temp=q.poll();
+                list.add(temp.val);
+                if(temp.left!=null) q.add(temp.left);
+                if(temp.right!=null) q.add(temp.right);
+            }
+            if(level%2!=0) Collections.reverse(list);
+            ans.add(list);
+            level++;
+        }
+        return ans;
+    }
+}
+
+
+
+
+approach2::
+
+
+class Solution {
+    static  void nthlevel(TreeNode root,int level,List<Integer> list){
+        if(root==null) return ;
+        if(level==0) list.add(root.val);
+        nthlevel(root.left,level-1,list);
+        nthlevel(root.right,level-1,list);
+    }
+    static  int height(TreeNode root){
+        if(root ==null) return 0;
+        return 1+Math.max(height(root.left),height(root.right));
+    }
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        if(root==null) return new ArrayList();
+        List<List<Integer>> ans=new ArrayList<>();
+        int level=height(root);
+        for(int i=0;i<level;i++){
+            List<Integer> temp=new ArrayList<>();
+             nthlevel(root,i,temp);
+             if(i%2!=0)  Collections.reverse(temp);
+             ans.add(temp);
+        }
+        return ans;
+        
+    }
+}
+
